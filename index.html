@@ -621,130 +621,66 @@
       animation: groupFadeIn .25s ease forwards;
     }
 
-    /* ── Project Cards ── */
+    /* ── Project Cards (Clean & Minimal) ── */
     .project-card {
-      padding: 32px;
+      padding: 38px 34px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      transition: background .15s ease;
+    }
+
+    .project-card:hover {
+      background: #fafafa;
+    }
+
+    .proj-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
     }
 
     .proj-num {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--accent);
-      display: block;
-      margin-bottom: 12px;
     }
 
     .proj-sub {
-      font-size: 13px;
+      font-size: 11.5px;
+      font-weight: 600;
       color: var(--muted);
-      font-weight: 400;
-      margin-bottom: 3px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: .02em;
     }
 
     .proj-title {
-      font-size: clamp(17px, 1.8vw, 20px);
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: -.02em;
-      line-height: 1.3;
+      line-height: 1.4;
       margin-bottom: 14px;
-    }
-
-    .proj-desc {
-      font-size: 13.5px;
-      color: var(--sub);
-      line-height: 1.85;
-      margin-bottom: 18px;
-    }
-
-    .arch-block {
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
-    }
-
-    .arch-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .flow-inputs {
-      display: flex;
-      gap: 5px;
-      margin-bottom: 8px;
-    }
-
-    .flow-input {
-      flex: 1;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 7px 4px;
-      text-align: center;
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--sub);
-    }
-
-    .flow-box {
-      background: var(--accent);
-      border-radius: 5px;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .flow-item {
-      text-align: center;
-      color: #fff;
-    }
-
-    .flow-item strong {
-      display: block;
-      font-size: 12.5px;
-      font-weight: 600;
-    }
-
-    .flow-item small {
-      font-size: 10.5px;
-      opacity: .7;
-    }
-
-    .flow-sep {
-      width: 1px;
-      height: 32px;
-      background: rgba(255, 255, 255, .22);
-    }
-
-    .flow-outputs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5px;
-    }
-
-    .flow-output {
-      border-left: 2px solid var(--accent);
-      padding: 7px 10px;
-      background: var(--surface);
-      border-radius: 0 3px 3px 0;
-    }
-
-    .flow-output strong {
-      display: block;
-      font-size: 12.5px;
       color: var(--text);
     }
 
-    .flow-output small {
-      font-size: 11px;
-      color: var(--muted);
+    .proj-desc {
+      font-size: 14px;
+      color: var(--sub);
+      line-height: 1.85;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .project-card .tags {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
     }
 
     /* ── Achievement Cards ── */
@@ -1146,121 +1082,66 @@
 
           <!-- 01 -->
           <div class="project-card">
-            <span class="proj-num">Project 01</span>
-            <p class="proj-sub">GAI와 CNN 기반</p>
-            <div class="proj-title">멀티모달 감정분석<br>실시간 상담 시스템</div>
-            <p class="proj-desc">생성형 AI(GAI)와 합성곱 신경망(CNN)을 융합하여 텍스트·음성·영상 멀티모달 데이터를 실시간 분석하고, 사용자 감정 상태에 최적화된 맞춤형 상담을
-              제공하는 지능형 시스템</p>
-            <div class="tags">
-              <span class="tag">Generative AI</span><span class="tag">CNN</span>
-              <span class="tag">Multimodal</span><span class="tag">Real-time</span><span class="tag">Sentiment</span>
+            <div class="proj-header">
+              <span class="proj-num">Project 01</span>
+              <span class="proj-sub">GAI &amp; CNN</span>
             </div>
-            <div class="arch-block">
-              <div class="arch-label">System Architecture</div>
-              <div class="flow-inputs">
-                <div class="flow-input">Video</div>
-                <div class="flow-input">Voice</div>
-                <div class="flow-input">Text</div>
-              </div>
-              <div class="flow-box">
-                <div class="flow-item"><strong>CNN Analysis</strong><small>Feature Extraction</small></div>
-                <div class="flow-sep"></div>
-                <div class="flow-item"><strong>GAI Model</strong><small>Context Understanding</small></div>
-              </div>
-              <div class="flow-outputs">
-                <div class="flow-output"><strong>감정 상태 분류</strong><small>7대 감정 정밀 인식</small></div>
-                <div class="flow-output"><strong>맞춤형 상담</strong><small>공감형 답변 실시간 생성</small></div>
-              </div>
+            <h3 class="proj-title">멀티모달 감정분석 실시간 상담 시스템</h3>
+            <p class="proj-desc">생성형 AI(GAI)와 합성곱 신경망(CNN)을 융합하여 텍스트·음성·영상 멀티모달 데이터를 실시간 분석하고, 사용자 감정 상태에 최적화된 맞춤형 상담을 제공하는 지능형 시스템</p>
+            <div class="tags">
+              <span class="tag">Generative AI</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Multimodal</span>
+              <span class="tag">Real-time</span>
+              <span class="tag">Sentiment</span>
             </div>
           </div>
 
           <!-- 02 -->
           <div class="project-card">
-            <span class="proj-num">Project 02</span>
-            <p class="proj-sub">YOLOv8과 CNN+LSTM 기반</p>
-            <div class="proj-title">실시간 유해야생동물<br>탐지 및 대응 시스템</div>
-            <p class="proj-desc">YOLOv8 객체 탐지와 CNN+LSTM 시계열 분석을 결합하여, CCTV·센서 데이터로부터 유해 야생동물을 실시간 식별하고 이동 경로를 예측하여 농가
-              피해를 예방하는 지능형 대응 시스템</p>
-            <div class="tags">
-              <span class="tag">YOLOv8</span><span class="tag">CNN+LSTM</span>
-              <span class="tag">Sensor Fusion</span><span class="tag">IoT Edge</span>
+            <div class="proj-header">
+              <span class="proj-num">Project 02</span>
+              <span class="proj-sub">YOLOv8 &amp; CNN+LSTM</span>
             </div>
-            <div class="arch-block">
-              <div class="arch-label">Intelligent Wildlife Defense</div>
-              <div class="flow-inputs">
-                <div class="flow-input">RGB/열화상 CCTV</div>
-                <div class="flow-input">Motion Sensor</div>
-                <div class="flow-input">환경 데이터</div>
-              </div>
-              <div class="flow-box">
-                <div class="flow-item"><strong>YOLOv8</strong><small>Fast Object Detection</small></div>
-                <div class="flow-sep"></div>
-                <div class="flow-item"><strong>CNN+LSTM</strong><small>Action Recognition</small></div>
-              </div>
-              <div class="flow-outputs">
-                <div class="flow-output"><strong>실시간 경보</strong><small>앱 푸시 및 관리자 알림</small></div>
-                <div class="flow-output"><strong>자동 퇴치</strong><small>LED 점멸·위협음 제어</small></div>
-              </div>
+            <h3 class="proj-title">실시간 유해야생동물 탐지 및 대응 시스템</h3>
+            <p class="proj-desc">YOLOv8 객체 탐지와 CNN+LSTM 시계열 분석을 결합하여, CCTV·센서 데이터로부터 유해 야생동물을 실시간 식별하고 이동 경로를 예측하여 농가 피해를 예방하는 지능형 대응 시스템</p>
+            <div class="tags">
+              <span class="tag">YOLOv8</span>
+              <span class="tag">CNN+LSTM</span>
+              <span class="tag">Sensor Fusion</span>
+              <span class="tag">IoT Edge</span>
             </div>
           </div>
 
           <!-- 03 -->
           <div class="project-card">
-            <span class="proj-num">Project 03</span>
-            <p class="proj-sub">다중 감정 분류를 위한</p>
-            <div class="proj-title">실시간 음성 기반<br>감정 인식 시스템</div>
-            <p class="proj-desc">사용자 음성의 톤·억양·속도 등 다양한 특징을 추출하고, 딥러닝 모델을 통해 복합적인 다중 감정(Multi-emotion)을 분류하여 정확도를 평가하는
-              시스템</p>
-            <div class="tags">
-              <span class="tag">SER</span><span class="tag">Audio Signal</span>
-              <span class="tag">MFCC</span><span class="tag">CNN/LSTM</span>
+            <div class="proj-header">
+              <span class="proj-num">Project 03</span>
+              <span class="proj-sub">Multi-Emotion SER</span>
             </div>
-            <div class="arch-block">
-              <div class="arch-label">SER System Architecture</div>
-              <div class="flow-inputs">
-                <div class="flow-input">Voice Input</div>
-                <div class="flow-input">Noise Reduction</div>
-                <div class="flow-input">Feature Extract</div>
-              </div>
-              <div class="flow-box">
-                <div class="flow-item"><strong>Deep Learning</strong><small>Pattern Recognition</small></div>
-                <div class="flow-sep"></div>
-                <div class="flow-item"><strong>Classification</strong><small>Multi-labeling</small></div>
-              </div>
-              <div class="flow-outputs">
-                <div class="flow-output"><strong>다중 감정 분류</strong><small>기쁨/슬픔/분노/중립 식별</small></div>
-                <div class="flow-output"><strong>성능 평가</strong><small>정확도 검증 및 피드백</small></div>
-              </div>
+            <h3 class="proj-title">실시간 음성 기반 감정 인식 시스템</h3>
+            <p class="proj-desc">사용자 음성의 톤·억양·속도 등 다양한 특징을 추출하고, 딥러닝 모델을 통해 복합적인 다중 감정(Multi-emotion)을 분류하여 정확도를 평가하는 시스템</p>
+            <div class="tags">
+              <span class="tag">SER</span>
+              <span class="tag">Audio Signal</span>
+              <span class="tag">MFCC</span>
+              <span class="tag">CNN/LSTM</span>
             </div>
           </div>
 
-          <!-- 05 -->
+          <!-- 04 -->
           <div class="project-card">
-            <span class="proj-num">Project 05</span>
-            <p class="proj-sub">메디링크 스마트링의</p>
-            <div class="proj-title">다채널 생체신호 기반<br>개인맞춤형 AI 헬스케어</div>
-            <p class="proj-desc">반지형 웨어러블 '메디링크 스마트링'으로 심박수·체온·산소포화도 등 다채널 생체신호를 무자각·무구속 수집하고, AI 분석을 통해 개인별 건강 상태를
-              진단·예측하는 통합 플랫폼</p>
-            <div class="tags">
-              <span class="tag">Smart Ring</span><span class="tag">Bio-signal</span>
-              <span class="tag">Multi-channel</span><span class="tag">AI Healthcare</span>
+            <div class="proj-header">
+              <span class="proj-num">Project 04</span>
+              <span class="proj-sub">Smart Ring &amp; Bio-signal</span>
             </div>
-            <div class="arch-block">
-              <div class="arch-label">Platform Architecture</div>
-              <div class="flow-inputs">
-                <div class="flow-input">Smart Ring</div>
-                <div class="flow-input">Bio-signals</div>
-                <div class="flow-input">Mobile App</div>
-              </div>
-              <div class="flow-box">
-                <div class="flow-item"><strong>Data Analysis</strong><small>Trend &amp; Pattern</small></div>
-                <div class="flow-sep"></div>
-                <div class="flow-item"><strong>Diagnosis AI</strong><small>Personalized Care</small></div>
-              </div>
-              <div class="flow-outputs">
-                <div class="flow-output"><strong>건강 리포트</strong><small>일/주/월 단위 분석</small></div>
-                <div class="flow-output"><strong>이상 징후 알림</strong><small>응급 상황 즉시 통보</small></div>
-              </div>
+            <h3 class="proj-title">다채널 생체신호 기반 개인맞춤형 AI 헬스케어</h3>
+            <p class="proj-desc">반지형 웨어러블 '메디링크 스마트링'으로 심박수·체온·산소포화도 등 다채널 생체신호를 무자각·무구속 수집하고, AI 분석을 통해 개인별 건강 상태를 진단·예측하는 통합 플랫폼</p>
+            <div class="tags">
+              <span class="tag">Smart Ring</span>
+              <span class="tag">Bio-signal</span>
+              <span class="tag">Multi-channel</span>
+              <span class="tag">AI Healthcare</span>
             </div>
           </div>
 
