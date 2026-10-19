@@ -65,6 +65,7 @@
     section {
       padding: 88px 0;
       border-top: 1px solid var(--border);
+      scroll-margin-top: 88px;
     }
 
     section:first-of-type {
@@ -135,41 +136,46 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, .94);
-      backdrop-filter: blur(10px) saturate(180%);
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(12px) saturate(180%);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .03);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60px;
+      height: 88px;
     }
 
     .brand img {
-      height: 60px;
+      height: 68px;
       width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     .site-logo {
-      height: 80px;
+      height: 62px;
       width: auto;
+      object-fit: contain;
+      display: block;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2px;
+      gap: 4px;
     }
 
     nav a {
-      padding: 5px 11px;
-      border-radius: 5px;
-      font-size: 13.5px;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-size: 15px;
       font-weight: 500;
       color: var(--muted);
-      transition: color .12s, background .12s;
+      transition: color .15s, background .15s;
     }
 
     nav a:hover {
@@ -180,15 +186,16 @@
     nav a[aria-current="true"] {
       color: var(--accent);
       background: var(--surface);
+      font-weight: 600;
     }
 
     .menu-btn {
       display: none;
       border: 1px solid var(--border);
       background: none;
-      padding: 6px 12px;
-      border-radius: 5px;
-      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
       font-weight: 500;
       cursor: pointer;
     }
@@ -196,23 +203,23 @@
     .menu-panel {
       display: none;
       position: absolute;
-      inset: 60px 0 auto;
+      inset: 88px 0 auto;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      padding: 10px 28px 14px;
+      padding: 12px 28px 18px;
     }
 
     .menu-panel ul {
       list-style: none;
       display: grid;
-      gap: 1px;
+      gap: 2px;
     }
 
     .menu-panel a {
       display: block;
-      padding: 9px 10px;
-      border-radius: 5px;
-      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 14.5px;
       font-weight: 500;
       color: var(--muted);
     }
@@ -500,8 +507,118 @@
 
     .activity-img {
       margin-top: 12px;
-      border-radius: 5px;
-      max-height: 260px;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 448px;
+      aspect-ratio: 16 / 9.3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Activities Year Tabs & Groups ── */
+    .year-filter-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .year-tab-btn {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--sub);
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .year-tab-btn:hover {
+      background: var(--surface);
+      color: var(--text);
+      border-color: #cfcfcf;
+    }
+
+    .year-tab-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    .year-tab-btn .tab-count {
+      font-size: 11px;
+      opacity: .85;
+      background: rgba(0, 0, 0, .06);
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .year-tab-btn.active .tab-count {
+      background: rgba(255, 255, 255, .25);
+      color: #fff;
+    }
+
+    .year-group {
+      margin-bottom: 48px;
+      transition: opacity .2s ease;
+    }
+
+    .year-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .year-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .year-label {
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--text);
+    }
+
+    .year-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(29, 78, 216, .08);
+      border: 1px solid rgba(29, 78, 216, .2);
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+
+    .year-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    @keyframes groupFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .year-group.fade-in {
+      animation: groupFadeIn .25s ease forwards;
     }
 
     /* ── Project Cards ── */
@@ -858,7 +975,7 @@
     <!-- Hero / About -->
     <section id="about" class="hero">
       <video autoplay muted loop playsinline class="bg-video">
-        <source src="assets/hero.mp4" type="video/mp4" />
+        <source src="assets/video.mp4" type="video/mp4" />
       </video>
       <div class="hero-overlay"></div>
       <div class="wrap hero-body">
@@ -918,7 +1035,7 @@
           </div>
 
           <div class="member-card">
-            <div class="mem-avatar"><img src="assets/seu123nggi.jpg" alt="성찬민 프로필" /></div>
+            <div class="mem-avatar"><img src="assets/chanmin.jpg" alt="성찬민 프로필" /></div>
             <div class="mem-role">학사과정 4학년</div>
             <h3>성찬민</h3>
             <div class="tags"><span class="tag">Cloud</span><span class="tag">LLM</span><span class="tag">LSTM</span>
@@ -1159,41 +1276,84 @@
           <h2>대외활동</h2>
           <div class="rule"></div>
         </div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-date">2026 · 02</div>
-            <strong>Google AI 인재양성 — AI 융합 경진대회 대상</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">노동법 판례를 이용한 RAG 챗봇</p>
-            <img src="assets/GCP 대상.png" alt="Google AI 경진대회 대상 사진" class="activity-img" />
+
+        <!-- 연도별 필터 탭 -->
+        <div class="year-filter-tabs" role="tablist" aria-label="연도별 활동 필터">
+          <button class="year-tab-btn active" data-filter="all" role="tab" aria-selected="true" type="button">
+            전체 <span class="tab-count">8</span>
+          </button>
+          <button class="year-tab-btn" data-filter="2026" role="tab" aria-selected="false" type="button">
+            2026 <span class="tab-count">3</span>
+          </button>
+          <button class="year-tab-btn" data-filter="2025" role="tab" aria-selected="false" type="button">
+            2025 <span class="tab-count">5</span>
+          </button>
+        </div>
+
+        <div class="activities-wrapper">
+          <!-- 2026 Group -->
+          <div class="year-group" data-year="2026">
+            <div class="year-header">
+              <span class="year-label">2026</span>
+              <span class="year-tag">3건</span>
+              <div class="year-line"></div>
+            </div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">09월</div>
+                <strong>독일 IFA 2026 — 글로벌 인사이트 프로젝트 (해외연수)</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">독일 베를린(Messe Berlin) · 글로벌 가전 박람회 IFA 2026 참관 및
+                  최신 AI·스마트홈 신기술 벤치마킹</p>
+                <img src="assets/ifa.jpg" alt="독일 IFA 2026 글로벌 인사이트 프로젝트 해외연수 단체 사진" class="activity-img" />
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">07월</div>
+                <strong>케냐 ICCSS 2026 — 국제 컨퍼런스 발표</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">멀티모달 상담 챗봇, MFCC 음성인식 감정분석 (2026. 07. 02 발표)</p>
+                <img src="assets/iccss.png" alt="케냐 ICCSS 2026 국제 컨퍼런스 발표 화면" class="activity-img" />
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">02월</div>
+                <strong>Google AI 인재양성 — AI 융합 경진대회 대상</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">노동법 판례를 이용한 RAG 챗봇</p>
+                <img src="assets/GCP 대상.png" alt="Google AI 경진대회 대상 사진" class="activity-img" />
+              </div>
+            </div>
           </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 05</div>
-            <strong>한국스마트미디어학회 — 춘계학술대회 우수논문상</strong>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 05</div>
-            <strong>한국전자통신학회 — 춘계학술대회 우수논문상</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">MFCC 음성인식 감정분석</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 06</div>
-            <strong>광주과학기술원(GIST) — Techive 발표 참여</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">AI 최신 트렌드·응용 발표 + 실습 세션</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 06</div>
-            <strong>살레시오고 — 연구 및 학과 홍보 발표</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">멀티모달 상담 챗봇 LLM</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 06</div>
-            <strong>케냐 ICCSS 2025 — 국제 컨퍼런스 발표</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">멀티모달 상담 챗봇, MFCC 음성인식 감정분석</p>
-          </div>
-          <div class="tl-item">
-            <div class="tl-date">2025 · 08</div>
-            <strong>제4회 SW 테스트 경진대회 — 본선 진출</strong>
-            <p class="muted" style="font-size:13.5px;margin-top:3px">SW 품질관리 크라우드테스팅</p>
+
+          <!-- 2025 Group -->
+          <div class="year-group" data-year="2025">
+            <div class="year-header">
+              <span class="year-label">2025</span>
+              <span class="year-tag">5건</span>
+              <div class="year-line"></div>
+            </div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">08월</div>
+                <strong>제4회 SW 테스트 경진대회 — 본선 진출</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">SW 품질관리 크라우드테스팅</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">06월</div>
+                <strong>살레시오고 — 연구 및 학과 홍보 발표</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">멀티모달 상담 챗봇 LLM</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">06월</div>
+                <strong>광주과학기술원(GIST) — Techive 발표 참여</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">AI 최신 트렌드·응용 발표 + 실습 세션</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">05월</div>
+                <strong>한국전자통신학회 — 춘계학술대회 우수논문상</strong>
+                <p class="muted" style="font-size:13.5px;margin-top:3px">MFCC 음성인식 감정분석</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">05월</div>
+                <strong>한국스마트미디어학회 — 춘계학술대회 우수논문상</strong>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1224,8 +1384,8 @@
             <div class="ach-award">우수논문상 수상</div>
           </div>
           <div class="ach-card">
-            <div class="ach-year">2025 · International</div>
-            <h3>ICCSS 2025</h3>
+            <div class="ach-year">2026 · International</div>
+            <h3>ICCSS 2026</h3>
             <p class="ach-sub">International Conference on Computing &amp; Smart Systems</p>
             <div class="ach-award">국제 학술대회 발표</div>
           </div>
@@ -1318,6 +1478,7 @@
               <li>글로벌 가전 트렌드 및 신기술 탐색</li>
               <li>AI 기반 스마트홈 &amp; IoT 솔루션 벤치마킹</li>
               <li>독일 현지 대학 및 연구소 교류</li>
+              <li>2026. 09 글로벌 인사이트 프로젝트 파견 (Messe Berlin)</li>
             </ul>
           </div>
           <div class="overseas-col">
@@ -1416,6 +1577,34 @@
       });
     }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
     sections.forEach(s => obs.observe(s));
+
+    // 대외활동 연도별 탭 필터
+    const yearTabs = document.querySelectorAll('.year-tab-btn');
+    const yearGroups = document.querySelectorAll('.year-group');
+    yearTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.getAttribute('data-filter');
+
+        yearTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        yearGroups.forEach(group => {
+          const groupYear = group.getAttribute('data-year');
+          if (filter === 'all' || groupYear === filter) {
+            group.style.display = 'block';
+            group.classList.remove('fade-in');
+            void group.offsetWidth; // reflow 트리거
+            group.classList.add('fade-in');
+          } else {
+            group.style.display = 'none';
+          }
+        });
+      });
+    });
   </script>
 </body>
 
